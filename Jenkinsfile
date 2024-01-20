@@ -1,13 +1,13 @@
 pipeline{
     agent any
     stages{
-        stage("Code"){
+        stage("Clone the Code"){
             steps{
                 echo "Cloning the code"
                 git url:"https://github.com/surajsingz/Django-Note-App.git", branch:"main"
             }
         }
-        stage("Build"){
+        stage("Build the Image"){
             steps{
                 echo "Building the code"
                 sh "docker build -t cicd-note-app ."
@@ -24,7 +24,7 @@ pipeline{
                 }
         }
         }
-        stage("Deploy"){
+        stage("Deploy to EC2"){
             steps{
                 echo "Deploying the container"
                 sh "docker-compose down && docker-compose up -d"
