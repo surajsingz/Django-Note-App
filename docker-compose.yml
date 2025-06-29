@@ -1,6 +1,6 @@
 version : "3.3"
 services :
   web :
-     image : cicd-note-app:latest
+     image : surajsingz/cicd-note-app:latest
      ports :
          - "8000:8000"
